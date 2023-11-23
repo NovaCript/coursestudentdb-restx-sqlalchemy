@@ -19,7 +19,6 @@ class CourseListAPI(Resource):
     def get(self):
         return Course.query.all()
 
-    @ns.doc_abort("201", "User create!")
     @ns.expect(course_input_model)
     @ns.marshal_list_with(course_model)
     def post(self):
@@ -36,7 +35,6 @@ class CourseAPI(Resource):
         course = Course.query.get(id)
         return course
 
-    @ns.doc_abort("200", "User update!")
     @ns.expect(course_input_model)
     @ns.marshal_with(course_model)
     def put(self, id):
@@ -45,7 +43,6 @@ class CourseAPI(Resource):
         db.session.commit()
         return course, 200
 
-    @ns.doc_abort("204", "User delete!")
     def delete(self, id):
         course = Course.query.get(id)
         db.session.delete(course)
@@ -59,7 +56,6 @@ class StudentListAPI(Resource):
     def get(self):
         return Student.query.all()
 
-    @ns.doc_abort("201", "User create!")
     @ns.expect(student_input_model)
     @ns.marshal_list_with(student_model)
     def post(self):
@@ -77,7 +73,6 @@ class StudentAPI(Resource):
         student = Student.query.get(id)
         return student
 
-    @ns.doc_abort("200", "User update!")
     @ns.expect(student_input_model)
     @ns.marshal_with(student_model)
     def put(self, id):
@@ -87,7 +82,6 @@ class StudentAPI(Resource):
         db.session.commit()
         return student, 200
 
-    @ns.doc_abort("204", "User delete!")
     def delete(self, id):
         student = Student.query.get(id)
         db.session.delete(student)
