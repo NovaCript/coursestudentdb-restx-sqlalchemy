@@ -11,7 +11,8 @@ Implemented CRUD requests.
 
 Launch via env: flask run.
 
-======================================
+_____________________________________
+
 Database about courses and students. 
 This project was written to strengthen skills.
 This is a small project that I am doing
